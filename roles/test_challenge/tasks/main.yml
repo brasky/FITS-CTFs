@@ -7,6 +7,5 @@
   docker_container:
     name: test-web
     image: httpd:latest
-    command: 
-    state: running
+    state: started
     expose: 80
