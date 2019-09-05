@@ -1,0 +1,14 @@
+- hosts: all
+  become: yes
+  become_method: sudo
+  tasks:
+    - name: Build Docker image from Dockerfile
+      docker_image:
+        name: web
+        path: docker
+        state: build
+    - name: Run the container
+      docker_container:
+        image: web:latest
+        path: docker
+        state: running
