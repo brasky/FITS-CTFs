@@ -11,5 +11,5 @@
     tty: yes
     expose: 22
     interactive: yes
-    detach: yes
+    detach: no
     published_ports: '6001:22'
