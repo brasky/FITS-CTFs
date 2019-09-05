@@ -11,4 +11,5 @@
     expose: 22
     interactive: yes
     detach: yes
+    command: touch /tmp/test
     published_ports: '6001:22'
