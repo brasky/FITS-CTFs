@@ -10,4 +10,4 @@
     command: sudo useradd -p $(openssl passwd -1 theBeanStalk) jack
     state: started
     expose: 22
-    published_ports: 6001:22
+    published_ports: '6001:22'
