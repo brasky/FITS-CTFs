@@ -7,8 +7,6 @@
   docker_container:
     name: challenge1-ssh
     image: alpine:latest
-    entrypoint: "/bin/sh"
-    command: touch /tmp/test
     state: started
     tty: yes
     expose: 22
