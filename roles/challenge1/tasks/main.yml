@@ -1,12 +1,12 @@
-- name: Pull alpine
+- name: Pull httpd
   docker_image:
-    name: alpine
+    name: httpd
     source: pull
 
 - name: Run the container
   docker_container:
-    name: challenge1-ssh
-    image: alpine:latest
+    name: test-web
+    image: httpd:latest
     state: started
-    expose: 22
-    published_ports: '6001:22'
+    expose: 80
+    published_ports: 8080:80
