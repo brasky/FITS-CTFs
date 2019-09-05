@@ -8,4 +8,4 @@
     name: test-web
     image: httpd:latest
     state: started
-    expose: 80
+    expose: 8080:80
