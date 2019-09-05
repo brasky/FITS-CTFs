@@ -1,15 +1,14 @@
-- name: Pull alpine
+- name: Pull openssh server image
   docker_image:
-    name: alpine
+    name: dockerbase/openssh-server
     source: pull
 
 - name: Run the container
   docker_container:
     name: challenge1-ssh
-    image: alpine:latest
+    image: openssh-server:latest
     state: started
     expose: 22
     interactive: yes
     detach: yes
-    command: touch /tmp/test
     published_ports: '6001:22'
