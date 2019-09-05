@@ -6,7 +6,7 @@
 - name: Run the container
   docker_container:
     name: challenge1-ssh
-    image: openssh-server:latest
+    image: dockerbase/openssh-server:latest
     state: started
     expose: 22
     interactive: yes
