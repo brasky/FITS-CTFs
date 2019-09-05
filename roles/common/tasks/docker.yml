@@ -44,10 +44,10 @@
   tags:
     - docker
  
-# sudo apt-get install docker-ce
+# sudo apt-get install docker-ce=18.03.*
 - name: Install docker
   apt:
-    name: docker-ce
+    name: docker-ce=19.03.*
     state: present
     update_cache: yes
   notify: Start docker on boot
@@ -74,8 +74,8 @@
   tags:
     - docker
  
-# sudo apt-get install docker-compose
-- name: Install docker-compose
+# sudo apt-get install docker-compose=1.8.*
+- name: Install docker-compose=1.17.*
   apt:
     name: docker-compose
     state: present
