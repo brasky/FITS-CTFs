@@ -9,6 +9,6 @@
     image: dockerbase/openssh-server:latest
     state: started
     expose: 22
-    interactive: yes
+    entrypoint: /dockerbase/openssh-server.sh
     detach: yes
     published_ports: '6001:22'
