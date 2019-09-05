@@ -1,6 +1,6 @@
 ---
 - name: Install pip and Docker-py
-  hosts: challengeservers
+  hosts: all
   remote_user: challenge
   become: yes
   become_method: sudo
