@@ -1,11 +1,6 @@
 ---
-- name: Install pip and Docker-py
+- name: Configure challenge server
   hosts: all
-  remote_user: challenge
   become: yes
-  become_method: sudo
-  tasks:
-    - name: Install pip
-      apt: name=python-pip state=present
-    - name: install docker-py package
-      pip: name=docker-py
+  roles:
+    - common
