@@ -1,11 +1,12 @@
-- name: Build Docker image from Dockerfile
+- name: Pull httpd
   docker_image:
-    name: web
-    path: docker
-    state: build
+    name: httpd
+    source: pull
 
 - name: Run the container
   docker_container:
-    image: web:latest
-    path: docker
+    name: test-web
+    image: httpd:latest
+    command: 
     state: running
+    expose: 80
