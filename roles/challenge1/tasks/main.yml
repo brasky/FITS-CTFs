@@ -7,7 +7,7 @@
   docker_container:
     name: challenge1-ssh
     image: alpine:latest
-    command: sudo useradd -p $(openssl passwd -1 theBeanStalk) jack && /bin/bash
+    command: /bin/bash
     state: started
     expose: 22
     published_ports: '6001:22'
