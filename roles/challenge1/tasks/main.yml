@@ -7,16 +7,7 @@
   docker_container:
     name: challenge1-ssh
     image: alpine:latest
+    command: sudo useradd -p $(openssl passwd -1 theBeanStalk) jack
     state: started
     expose: 22
     published_ports: 6001:22
-
-- name: Run docker exec command
-  docker_exec: 
-    command: sudo useradd -p $(openssl passwd -1 theBeanStalk) jack
-    docker_host: localhost
-    name: challenge1-ssh
-  register: exec_output
-
-- name: Show exec output
-  debug: msg="{{ exec_output.result }}"
