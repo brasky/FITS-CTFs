@@ -8,8 +8,7 @@
     name: challenge1-ssh
     image: alpine:latest
     state: started
-    tty: yes
     expose: 22
     interactive: yes
-    detach: no
+    detach: yes
     published_ports: '6001:22'
