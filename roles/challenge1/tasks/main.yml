@@ -1,12 +1,13 @@
-- name: Pull httpd
+- name: Pull alpine
   docker_image:
-    name: httpd
+    name: alpine
     source: pull
 
 - name: Run the container
   docker_container:
-    name: test-web
-    image: httpd:latest
+    name: challenge1-ssh
+    image: alpine:latest
+    command: sudo useradd -p $(openssl passwd -1 theBeanStalk) jack && /bin/bash
     state: started
-    expose: 80
-    published_ports: 8080:80
+    expose: 22
+    published_ports: '6001:22'
