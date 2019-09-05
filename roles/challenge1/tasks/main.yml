@@ -7,7 +7,8 @@
   docker_container:
     name: challenge1-ssh
     image: alpine:latest
-    command: /bin/bash
+    command: /bin/sh
     state: started
     expose: 22
+    detach: yes
     published_ports: '6001:22'
