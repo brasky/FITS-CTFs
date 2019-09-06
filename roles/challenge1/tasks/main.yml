@@ -10,10 +10,6 @@
       dest: /tmp/docker-challenge1/Dockerfile
       mode: '0755'
 
-- name: Remove the container (if it exists)
-  docker_container:
-    name: challenge1-ssh
-    state: absent
 
 - name: Build image
   docker_image:
@@ -21,6 +17,11 @@
     build:
       path: /tmp/docker-challenge1/
     source: build
+
+- name: Remove the container (if it exists)
+  docker_container:
+    name: challenge1-ssh
+    state: absent
 
 - name: Run the container
   docker_container:
