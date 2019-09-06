@@ -1,14 +1,27 @@
-- name: Pull openssh server image
+- name: Create a directory if it does not exist
+  file:
+    path: /tmp/docker-challenge1
+    state: directory
+    mode: '0755'
+
+- name: Copy dockerfile
+  copy:
+      src: {{ repo_path }}/challenge1/docker/Dockerfile
+      dest: /tmp/docker-challenge1/Dockerfile
+      mode: '0755'
+
+- name: Build image
   docker_image:
-    name: dockerbase/openssh-server
-    source: pull
+    name: challenge1-image
+    build:
+      path: /tmp/docker-challenge1/
+    source: build
 
 - name: Run the container
   docker_container:
     name: challenge1-ssh
-    image: dockerbase/openssh-server:latest
+    image: challenge1-image
     state: started
     expose: 22
-    entrypoint: /dockerbase/openssh-server.sh
     detach: yes
     published_ports: '6001:22'

@@ -1,6 +1,8 @@
 ---
 - name: Configure challenge server
   hosts: all
+  vars_files:
+    - "vars/{{ env }}.yml"
   become: yes
   roles:
     - common
