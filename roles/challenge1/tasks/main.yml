@@ -9,6 +9,7 @@
       src: "{{ repo_path }}/roles/challenge1/docker/Dockerfile"
       dest: /tmp/docker-challenge1/Dockerfile
       mode: '0755'
+      force: yes
 
 
 - name: Build image
