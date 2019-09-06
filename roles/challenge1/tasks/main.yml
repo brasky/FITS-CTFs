@@ -11,13 +11,16 @@
       mode: '0755'
       force: yes
 
-
 - name: Build image
   docker_image:
     name: challenge1-image
     build:
       path: /tmp/docker-challenge1/
     source: build
+    state: present
+    force_source: yes
+    repository: challenge1-image:latest
+    force_tag: yes
 
 - name: Remove the container (if it exists)
   docker_container:
