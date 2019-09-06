@@ -9,3 +9,8 @@ SSH is running on port 6001 in an ubuntu 18.04 docker container
 ## Creds
 
 jack:theBeanStalk
+
+
+## Flag
+
+flag{n0w_Th4t_wa5nt_so_h4rd!}
