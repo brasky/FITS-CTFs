@@ -1,3 +1,1 @@
 # FITS CTF
-
-test
