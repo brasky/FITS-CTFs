@@ -11,9 +11,10 @@ RUN sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so
 ENV NOTVISIBLE "in users profile"
 RUN echo "export VISIBLE=now" >> /etc/profile
 
-RUN touch /home/jack/catme.txt
-RUN echo "flag{n0w_Th4t_wa5nt_so_h4rd!}" >> /home/jack/catme.txt
-RUN chown jack:jack /home/jack/catme.txt
-RUN chmod 655 /home/jack/catme.txt
 EXPOSE 22
 CMD ["/usr/sbin/sshd", "-D"]
+
+RUN touch /home/jack/catme.txt
+RUN echo "flag{g0t_B3an5?}" >> /home/jack/catme.txt
+RUN chown jack:jack /home/jack/catme.txt
+RUN chmod 644 /home/jack/catme.txt
