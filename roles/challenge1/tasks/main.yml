@@ -15,8 +15,6 @@
     name: challenge1-image
     build:
       path: /tmp/docker-challenge1/
-    cache_from:
-      - ubuntu:18.04
     source: build
 
 - name: Run the container
