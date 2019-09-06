@@ -22,16 +22,12 @@
     repository: challenge1-image:latest
     force_tag: yes
 
-- name: Remove the container (if it exists)
-  docker_container:
-    name: challenge1-ssh
-    state: absent
-
 - name: Run the container
   docker_container:
     name: challenge1-ssh
     image: challenge1-image
     state: started
+    restart: yes
     expose: 22
     detach: yes
     published_ports: '6001:22'
