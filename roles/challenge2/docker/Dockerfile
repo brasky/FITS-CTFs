@@ -3,7 +3,7 @@ FROM ubuntu:18.04
 RUN apt-get update && apt-get install -y openssh-server sudo
 RUN mkdir /var/run/sshd
 RUN useradd -m -d /home/jack jack
-RUN echo 'jack:theBeanStalk' | chpasswd
+RUN echo 'jack:m4gicb3ans' | chpasswd
 RUN usermod -s /bin/bash jack
 
 # SSH login fix. Otherwise user is kicked off after login
@@ -18,4 +18,4 @@ RUN touch /home/jack/catme.txt
 RUN echo "flag{}" >> /home/jack/catme.txt
 RUN chown root:root /home/jack/catme.txt
 RUN chmod 400 /home/jack/catme.txt
-RUN echo 'jack ALL=NOPASSWD: /bin/ls' >> /etc/sudoers
+RUN echo 'jack ALL=NOPASSWD: /bin/cat' >> /etc/sudoers
