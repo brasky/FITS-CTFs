@@ -18,4 +18,4 @@ RUN touch /home/giant/catme.txt
 RUN echo "flag{Gogmagog}" >> /home/giant/catme.txt
 RUN chown root:root /home/giant/catme.txt
 RUN chmod 400 /home/giant/catme.txt
-RUN echo 'giant ALL=NOPASSWD: /bin/cat /usr/bin/whoami' >> /etc/sudoers
+RUN echo 'giant ALL=NOPASSWD: /bin/cat, /usr/bin/whoami' >> /etc/sudoers

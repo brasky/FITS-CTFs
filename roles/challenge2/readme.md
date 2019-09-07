@@ -10,7 +10,6 @@ SSH is running on port 6002 in an ubuntu 18.04 docker container
 
 giant:b0nes2br3ad
 
-
 ## Flag
 
 flag{Gogmagog}
