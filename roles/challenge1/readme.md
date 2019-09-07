@@ -13,4 +13,4 @@ jack:theBeanStalk
 
 ## Flag
 
-flag{n0w_Th4t_wa5nt_so_h4rd!}
+flag{g0t_B3an5?}
