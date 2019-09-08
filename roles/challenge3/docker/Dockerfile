@@ -12,7 +12,6 @@ ENV NOTVISIBLE "in users profile"
 RUN echo "export VISIBLE=now" >> /etc/profile
 
 EXPOSE 22
-RUN /usr/sbin/sshd -D
 RUN pip install SimpleHTTPAuthServer
 COPY --chown=root:root entrypoint.sh /root/entrypoint.sh
 ENTRYPOINT ["bash", "-c", "/root/entrypoint.sh"]
