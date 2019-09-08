@@ -15,4 +15,4 @@ EXPOSE 22
 CMD ["/usr/sbin/sshd", "-D"]
 
 RUN pip install SimpleHTTPAuthServer
-RUN python -m SimpleHTTPAuthServer 1337 jack:flag{n3ed5_PR0ce5s_1mpROv3mEn7} --dir /home/jack
+RUN python -m SimpleHTTPAuthServer 1337 jack:flag{n3ed5_PR0ce5s_1mpROv3mEn7} --dir /home/jack &> /dev/null
