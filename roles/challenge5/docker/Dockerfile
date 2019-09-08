@@ -14,4 +14,4 @@ RUN echo "export VISIBLE=now" >> /etc/profile
 EXPOSE 22
 CMD ["/usr/sbin/sshd", "-D"]
 
-RUN export PATH=flag{this_can_be_a_dir_that_you_can_write_files_to}:$PATH
+RUN echo "PATH='flag{this_can_be_a_dir_that_you_can_write_files_to}:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games'" >> /etc/environment
