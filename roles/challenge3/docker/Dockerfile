@@ -15,6 +15,7 @@ EXPOSE 22
 CMD ["/usr/sbin/sshd", "-D"]
 
 RUN pip install SimpleHTTPAuthServer
-RUN echo "python -m SimpleHTTPAuthServer 1337 jack:flag{n3ed5_PR0ce5s_1mpROv3mEn7} --dir /home/jack" > server.sh
+RUN echo "python -m SimpleHTTPAuthServer 1337 jack:flag{n3ed5_PR0ce5s_1mpROv3mEn7} --dir /home/jack" >> server.sh
+RUN chmod +x server.sh
 RUN chown root:root server.sh
 RUN nohup bash server.sh &
