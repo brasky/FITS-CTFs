@@ -14,5 +14,5 @@ RUN echo "export VISIBLE=now" >> /etc/profile
 EXPOSE 22
 CMD ["/usr/sbin/sshd", "-D"]
 
-COPY --chown=sysadmin:sysadmin /tmp/docker-challenge4/super_secret_program /home/sysadmin/super_secret_program
+COPY --chown=sysadmin:sysadmin super_secret_program /home/sysadmin/super_secret_program
 RUN chmod 644 /home/sysadmin/super_secret_program
