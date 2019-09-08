@@ -1,0 +1,33 @@
+- name: Create a directory if it does not exist
+  file:
+    path: /tmp/docker-challenge3
+    state: directory
+    mode: '0755'
+
+- name: Copy dockerfile
+  copy:
+      src: "{{ repo_path }}/roles/challenge3/docker/Dockerfile"
+      dest: /tmp/docker-challenge3/Dockerfile
+      mode: '0744'
+      force: yes
+
+- name: Build image
+  docker_image:
+    name: challenge3-image
+    build:
+      path: /tmp/docker-challenge3/
+    source: build
+    state: present
+    force_source: yes
+    repository: challenge3-image:latest
+    force_tag: yes
+
+- name: Run the container
+  docker_container:
+    name: challenge3-ssh
+    image: challenge3-image
+    state: started
+    restart: yes
+    expose: 22
+    detach: yes
+    published_ports: '6003:22'
