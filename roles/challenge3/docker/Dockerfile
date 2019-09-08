@@ -12,6 +12,6 @@ ENV NOTVISIBLE "in users profile"
 RUN echo "export VISIBLE=now" >> /etc/profile
 
 EXPOSE 22
-RUN service ssh restart && bash
+RUN service ssh start
 RUN pip install SimpleHTTPAuthServer
 CMD ["python", "-m", "SimpleHTTPAuthServer", "1337", "jack:flag{n3ed5_PR0ce5s_1mpROv3mEn7}", "--dir", "/home/jack"]
