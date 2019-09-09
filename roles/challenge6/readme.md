@@ -1,15 +1,15 @@
-# Challenge 5 - $PATH
+# Challenge 6 - Needle in the haystack
 
 ## Overview 
 
-Challenge is to ssh onto a box and grab the flag that is in the $PATH variable. 
+Challenge is to ssh onto a box and grep the flag out of the haystack.txt file.
 
-SSH is running on port 6005 in an ubuntu 18.04 docker container
+SSH is running on port 6006 in an ubuntu 18.04 docker container
 
 ## Creds
 
-jack:beNimble
+jack:theBeanStalk
 
 ## Flag
 
-flag{you_can_make_this_a_dir_that_you_can_write_files_to}
+flag{its_easy_to_find_the_needle_on_a_computer}

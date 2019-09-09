@@ -3,7 +3,7 @@ FROM ubuntu:18.04
 RUN apt-get update && apt-get install -y openssh-server
 RUN mkdir /var/run/sshd
 RUN useradd -m -d /home/jack jack
-RUN echo 'jack:theG1antSl4yer' | chpasswd
+RUN echo 'jack:theBeanStalk' | chpasswd
 RUN usermod -s /bin/bash jack
 
 # SSH login fix. Otherwise user is kicked off after login

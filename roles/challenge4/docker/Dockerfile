@@ -3,7 +3,7 @@ FROM ubuntu:18.04
 RUN apt-get update && apt-get install -y openssh-server sudo
 RUN mkdir /var/run/sshd
 RUN useradd -m -d /home/sysadmin sysadmin
-RUN echo 'sysadmin:ikn0wwh4timd0ing' | chpasswd
+RUN echo 'jack:theBeanStalk' | chpasswd
 RUN usermod -s /bin/bash sysadmin
 
 # SSH login fix. Otherwise user is kicked off after login

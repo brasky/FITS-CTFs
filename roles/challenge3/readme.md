@@ -8,7 +8,7 @@ SSH is running on port 6003 in an ubuntu 18.04 docker container
 
 ## Creds
 
-jack:andJill
+jack:theBeanStalk
 
 ## Flag
 
