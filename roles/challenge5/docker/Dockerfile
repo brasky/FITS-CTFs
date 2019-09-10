@@ -1,6 +1,6 @@
 FROM ubuntu:18.04
 
-RUN apt-get update && apt-get install -y openssh-server sudo
+RUN apt-get update && apt-get install -y openssh-server
 RUN mkdir /var/run/sshd
 RUN useradd -m -d /home/jack jack
 RUN echo 'jack:theBeanStalk' | chpasswd
@@ -14,5 +14,4 @@ RUN echo "export VISIBLE=now" >> /etc/profile
 EXPOSE 22
 CMD ["/usr/sbin/sshd", "-D"]
 
-COPY --chown=jack:jack super_secret_program /home/jack/super_secret_program
-RUN chmod 644 /home/jack/super_secret_program
+RUN echo "PATH='flag{this_can_be_a_dir_that_you_can_write_files_to}:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games'" >> /etc/environment
