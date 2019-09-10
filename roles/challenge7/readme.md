@@ -12,4 +12,4 @@ jack:theBeanStalk
 
 ## Flag
 
-flag{}
+flag{enc0ding_is_not_encrypti0n}

@@ -14,6 +14,6 @@ RUN echo "export VISIBLE=now" >> /etc/profile
 EXPOSE 22
 CMD ["/usr/sbin/sshd", "-D"]
 
-RUN echo "flag{d0nt_w0rry_its_base64_ENCRYPTED}" | base64 >> /home/jack/very-sensitive-data
+RUN echo "flag{enc0ding_is_not_encrypti0n}" | base64 >> /home/jack/very-sensitive-data
 RUN chown jack:jack /home/jack/very-sensitive-data
 RUN chmod 444 /home/jack/very-sensitive-data
