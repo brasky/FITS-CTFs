@@ -16,3 +16,4 @@ CMD ["/usr/sbin/sshd", "-D"]
 
 COPY --chown=jack:jack super_secret_program /home/jack/super_secret_program
 RUN chmod 644 /home/jack/super_secret_program
+RUN echo "chmod 644 /home/jack/super_secret_program" >> /home/jack/.profile
