@@ -14,7 +14,7 @@ RUN echo "export VISIBLE=now" >> /etc/profile
 EXPOSE 22
 RUN useradd -m -d /home/webserver webserver
 COPY --chown=webserver:webserver entrypoint.sh /root/entrypoint.sh
-RUN echo "flag{}" >> /home/webserver/index.html
+RUN echo "flag{wh0_n33ds_4_w3b_br0ws3r?}" >> /home/webserver/index.html
 #allow python to bind on 80 without being root
 RUN setcap CAP_NET_BIND_SERVICE=+eip /usr/bin/python2.7
 ENTRYPOINT ["bash", "-c", "/root/entrypoint.sh"]

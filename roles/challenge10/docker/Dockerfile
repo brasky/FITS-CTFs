@@ -14,5 +14,5 @@ RUN echo "export VISIBLE=now" >> /etc/profile
 EXPOSE 22
 RUN useradd -m -d /home/webserver webserver
 COPY --chown=webserver:webserver entrypoint.sh /root/entrypoint.sh
-RUN echo "flag{}" >> /home/webserver/index.html
+RUN echo "flag{c4nt_h1d3_fr0m_n3t5t4t}" >> /home/webserver/index.html
 ENTRYPOINT ["bash", "-c", "/root/entrypoint.sh"]
