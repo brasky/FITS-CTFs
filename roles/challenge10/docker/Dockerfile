@@ -12,7 +12,7 @@ ENV NOTVISIBLE "in users profile"
 RUN echo "export VISIBLE=now" >> /etc/profile
 
 EXPOSE 22
-RUN pip install SimpleHTTPAuthServer
+RUN pip install SimpleHTTPServer
 RUN useradd -m -d /home/webserver webserver
 COPY --chown=webserver:webserver entrypoint.sh /root/entrypoint.sh
 RUN echo "flag{}" >> /home/webserver/index.html
