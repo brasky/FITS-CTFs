@@ -1,6 +1,6 @@
 FROM ubuntu:18.04
 
-RUN apt-get update && apt-get install -y nc
+RUN apt-get update && apt-get install -y netcat
 RUN useradd -m -d /home/jack jack
 RUN echo 'jack:theBeanStalk' | chpasswd
 RUN usermod -s /bin/bash jack
