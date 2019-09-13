@@ -38,3 +38,4 @@
     expose: 22
     detach: yes
     published_ports: '6011:22'
+    restart_policy: always
