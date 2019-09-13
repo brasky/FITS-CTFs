@@ -1,0 +1,40 @@
+- name: Create a directory if it does not exist
+  file:
+    path: /tmp/docker-challenge11
+    state: directory
+    mode: '0755'
+
+- name: Copy dockerfile
+  copy:
+      src: "{{ repo_path }}/roles/challenge11/docker/Dockerfile"
+      dest: /tmp/docker-challenge11/Dockerfile
+      mode: '0744'
+      force: yes
+
+- name: Copy entrypoint script
+  copy:
+      src: "{{ repo_path }}/roles/challenge11/resources/entrypoint.sh"
+      dest: /tmp/docker-challenge11/entrypoint.sh
+      mode: '0744'
+      force: yes
+
+- name: Build image
+  docker_image:
+    name: challenge11-image
+    build:
+      path: /tmp/docker-challenge11/
+    source: build
+    state: present
+    force_source: yes
+    repository: challenge11-image:latest
+    force_tag: yes
+
+- name: Run the container
+  docker_container:
+    name: challenge11-ssh
+    image: challenge11-image
+    state: started
+    restart: yes
+    expose: 22
+    detach: yes
+    published_ports: '6011:22'
