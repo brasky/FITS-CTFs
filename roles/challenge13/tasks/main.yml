@@ -44,5 +44,4 @@
     restart: yes
     expose: 21
     detach: yes
-    published_ports: '6013:21'
-    published_ports: "21200-21210:21200-21210"
+    published_ports: "21200-21210:21200-21210, 6013:21"
