@@ -1,8 +1,8 @@
-# Challenge 12 - chmod
+# Challenge 12 - SSH w/ private key
 
 ## Overview 
 
-Challenge is to ssh onto a box and find the flag within an Access Database file. The database contains the flag so the user just needs to run 'strings' against it.
+Challenge is to ssh using a private key onto a box and grab the flag in `catme.txt` which is in the user's home directory
 
 SSH is running on port 6012 in an ubuntu 18.04 docker container
 
@@ -10,6 +10,7 @@ SSH is running on port 6012 in an ubuntu 18.04 docker container
 
 jack:theBeanStalk
 
+
 ## Flag
 
-flag{5tR1NGS_iS_S0_US3fuLL}
+flag{B0N3_bRe4D_1s_GRoS5}

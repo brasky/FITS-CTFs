@@ -8,14 +8,7 @@
   copy:
       src: "{{ repo_path }}/roles/challenge12/docker/Dockerfile"
       dest: /tmp/docker-challenge12/Dockerfile
-      mode: '0744'
-      force: yes
-
-- name: Copy program with the flag
-  copy:
-      src: "{{ repo_path }}/roles/challenge12/resources/giantsjournal"
-      dest: /tmp/docker-challenge12/giantsjournal
-      mode: '0744'
+      mode: '0755'
       force: yes
 
 - name: Build image
@@ -32,7 +25,7 @@
 - name: Run the container
   docker_container:
     name: challenge12-ssh
-    image: challenge4-image
+    image: challenge12-image
     state: started
     restart: yes
     expose: 22
