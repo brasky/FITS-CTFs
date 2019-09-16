@@ -32,7 +32,7 @@
 - name: Run the container
   docker_container:
     name: challenge8-ssh
-    image: challenge4-image
+    image: challenge8-image
     state: started
     restart: yes
     expose: 22
