@@ -6,4 +6,15 @@
   become: yes
   roles:
     - common
+    - challenge1
+    - challenge2
+    - challenge3
+    - challenge4
+    - challenge5
+    - challenge6
+    - challenge7
+    - challenge9
+    - challenge10
+    - challenge11
+    - challenge12
     - challenge13
