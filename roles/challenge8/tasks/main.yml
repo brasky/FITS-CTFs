@@ -13,7 +13,7 @@
 
 - name: Copy program with the flag
   copy:
-      src: "{{ repo_path }}/roles/challenge8/resources/giantsjournal"
+      src: "{{ repo_path }}/roles/challenge8/resources/giantsjournal.accdb"
       dest: /tmp/docker-challenge8/giantsjournal
       mode: '0744'
       force: yes
