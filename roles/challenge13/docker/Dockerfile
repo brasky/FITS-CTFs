@@ -10,4 +10,6 @@ COPY --chown=root:root vsftpd.conf /etc/vsftpd.conf
 RUN echo "flag{}" >> /home/jack/flag
 RUN mkdir /tmp/empty
 RUN chmod 555 /tmp/empty
+RUN mkdir /var/ftp
+RUN echo "username:password" >> /var/ftp/.hidden_creds
 ENTRYPOINT ["bash", "-c", "/root/entrypoint.sh"]
