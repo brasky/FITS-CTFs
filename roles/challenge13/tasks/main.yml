@@ -42,6 +42,6 @@
     image: challenge13-image
     state: started
     restart: yes
-    expose: 22
+    expose: 21
     detach: yes
-    published_ports: '6013:22'
+    published_ports: '6013:21'
