@@ -44,4 +44,4 @@
     restart: yes
     expose: 21
     detach: yes
-    published_ports: "10000-10100:10000-10100, 6013:21, 20:20"
+    published_ports: "10000-10100:10000-10100, 6013:6013, 20:20"
