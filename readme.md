@@ -2,11 +2,14 @@
 
 ## Creating a new challenge
 
-- Create a branch called "challenge#" where # is one above the highest challenge number
-    - This number will determine the port number if dockerizing the challenge. 6000 + # = the exposed port
+- Create a branch called "[difficulty][topic]#" where:
+    - difficulty is beginner, intermediate, advanced 
+    - Topic is linux, web, wireless, lockpicking, or any of the github labels. Make one if there isn't one!
+    - and # is one above the highest challenge number in that category. Check for issues tagged `documentation` and `your topic` to find the challenge numbering list.
+        - This number will determine the port number if dockerizing the challenge. 6000 + # = the exposed port
 
-- Switch to your branch in the editor and add the following:
-    - Add a directory called roles/challenge# - this is where all the challenge files go
+- Switch to your branch in your editor and add the following:
+    - Add a directory called roles/[difficulty][topic]# - this is where all the challenge files go
     - Inside of challenge# add:
         - A folder called `docker` (if applicable)
         - A folder called `tasks`
