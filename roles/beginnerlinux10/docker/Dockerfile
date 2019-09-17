@@ -17,5 +17,6 @@ COPY --chown=webserver:webserver entrypoint.sh /root/entrypoint.sh
 COPY --chown=webserver:webserver 000-default.conf /etc/apache2/sites-available/000-default.conf
 COPY --chown=webserver:webserver ports.conf /etc/apache2/ports.conf
 RUN echo "flag{c4nt_h1d3_fr0m_n3t5t4t}" >> /var/www/html/index.html
+RUN chown -R www-data:www-data /var/www/html
 RUN chmod -R 700 /var/www/html
 ENTRYPOINT ["bash", "-c", "/root/entrypoint.sh"]
