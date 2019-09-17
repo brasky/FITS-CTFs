@@ -18,6 +18,20 @@
       mode: '0744'
       force: yes
 
+- name: Copy ports.conf
+  copy:
+      src: "{{ repo_path }}/roles/beginnerlinux10/resources/ports.conf"
+      dest: /etc/apache2/ports.conf
+      mode: '0700'
+      force: yes
+
+- name: Copy default site conf
+  copy:
+      src: "{{ repo_path }}/roles/beginnerlinux10/resources/000-default.conf"
+      dest: /etc/apache2/sites-available/000-default.conf
+      mode: '0700'
+      force: yes
+
 - name: Build image
   docker_image:
     name: beginnerlinux10-image

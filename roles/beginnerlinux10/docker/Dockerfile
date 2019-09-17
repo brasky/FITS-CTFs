@@ -14,5 +14,8 @@ RUN echo "export VISIBLE=now" >> /etc/profile
 EXPOSE 22
 RUN useradd -m -d /home/webserver webserver
 COPY --chown=webserver:webserver entrypoint.sh /root/entrypoint.sh
-RUN echo "flag{c4nt_h1d3_fr0m_n3t5t4t}" >> /var/www/index.html
+COPY --chown=webserver:webserver 000-default.conf /etc/apache2/sites-available/000-default.conf
+COPY --chown=webserver:webserver ports.conf /etc/apache2/ports.conf
+RUN echo "flag{c4nt_h1d3_fr0m_n3t5t4t}" >> /var/www/html/index.html
+RUN chmod -R 700 /var/www/html
 ENTRYPOINT ["bash", "-c", "/root/entrypoint.sh"]
