@@ -6,16 +6,16 @@
   become: yes
   roles:
     - common
-    - challenge1
-    - challenge2
-    - challenge3
-    - challenge4
-    - challenge5
-    - challenge6
-    - challenge7
-    - challenge8
-    - challenge9
-    - challenge10
-    - challenge11
-    - challenge12
-    - challenge13
+    - beginnerlinux1
+    - beginnerlinux2
+    - beginnerlinux3
+    - beginnerlinux4
+    - beginnerlinux5
+    - beginnerlinux6
+    - beginnerlinux7
+    - beginnerlinux8
+    - beginnerlinux9
+    - beginnerlinux10
+    - beginnerlinux11
+    - beginnerlinux12
+    - beginnerlinux13

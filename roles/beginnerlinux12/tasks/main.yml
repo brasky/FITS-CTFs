@@ -1,0 +1,33 @@
+- name: Create a directory if it does not exist
+  file:
+    path: /tmp/docker-beginnerlinux12
+    state: directory
+    mode: '0755'
+
+- name: Copy dockerfile
+  copy:
+      src: "{{ repo_path }}/roles/beginnerlinux12/docker/Dockerfile"
+      dest: /tmp/docker-beginnerlinux12/Dockerfile
+      mode: '0755'
+      force: yes
+
+- name: Build image
+  docker_image:
+    name: beginnerlinux12-image
+    build:
+      path: /tmp/docker-beginnerlinux12/
+    source: build
+    state: present
+    force_source: yes
+    repository: beginnerlinux12-image:latest
+    force_tag: yes
+
+- name: Run the container
+  docker_container:
+    name: beginnerlinux12-ssh
+    image: beginnerlinux12-image
+    state: started
+    restart: yes
+    expose: 22
+    detach: yes
+    published_ports: '6012:22'
