@@ -1,6 +1,6 @@
 FROM ubuntu:18.04
 
-RUN apt-get update && apt-get install -y openssh-server httpd curl net-tools
+RUN apt-get update && apt-get install -y openssh-server apache2 curl net-tools
 RUN mkdir /var/run/sshd
 RUN useradd -m -d /home/jack jack
 RUN echo 'jack:theBeanStalk' | chpasswd
@@ -14,5 +14,5 @@ RUN echo "export VISIBLE=now" >> /etc/profile
 EXPOSE 22
 RUN useradd -m -d /home/webserver webserver
 COPY --chown=webserver:webserver entrypoint.sh /root/entrypoint.sh
-RUN echo "flag{c4nt_h1d3_fr0m_n3t5t4t}" >> /home/webserver/index.html
+RUN echo "flag{c4nt_h1d3_fr0m_n3t5t4t}" >> /var/www/index.html
 ENTRYPOINT ["bash", "-c", "/root/entrypoint.sh"]
