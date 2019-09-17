@@ -1,0 +1,40 @@
+- name: Create a directory if it does not exist
+  file:
+    path: /tmp/docker-beginnerlinux3
+    state: directory
+    mode: '0755'
+
+- name: Copy dockerfile
+  copy:
+      src: "{{ repo_path }}/roles/beginnerlinux3/docker/Dockerfile"
+      dest: /tmp/docker-beginnerlinux3/Dockerfile
+      mode: '0744'
+      force: yes
+
+- name: Copy entrypoint script
+  copy:
+      src: "{{ repo_path }}/roles/beginnerlinux3/resources/entrypoint.sh"
+      dest: /tmp/docker-beginnerlinux3/entrypoint.sh
+      mode: '0744'
+      force: yes
+
+- name: Build image
+  docker_image:
+    name: beginnerlinux3-image
+    build:
+      path: /tmp/docker-beginnerlinux3/
+    source: build
+    state: present
+    force_source: yes
+    repository: beginnerlinux3-image:latest
+    force_tag: yes
+
+- name: Run the container
+  docker_container:
+    name: beginnerlinux3-ssh
+    image: beginnerlinux3-image
+    state: started
+    restart: yes
+    expose: 22
+    detach: yes
+    published_ports: '6003:22'
