@@ -22,7 +22,7 @@ RUN chmod 644 /home/jack/catme.txt
 RUN mkdir /home/jack/.ssh
 RUN touch /home/jack/.ssh/authorized_keys
 RUN chown jack:jack /home/jack/.ssh
-RUN chown jack:jack /home/jack/authorized_keys
+RUN chown jack:jack /home/jack/.ssh/authorized_keys
 RUN chmod 700 /home/jack/.ssh
 RUN chmod 600 /home/jack/.ssh/authorized_keys
 
