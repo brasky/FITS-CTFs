@@ -45,10 +45,10 @@
 
 - name: Run the container
   docker_container:
-    name: beginnerweb1-ssh
+    name: beginnerweb1-web
     image: beginnerweb1-image
     state: started
     restart: yes
-    expose: 22
+    expose: 8001
     detach: yes
-    published_ports: '6201:22'
+    published_ports: '8001:8001'
