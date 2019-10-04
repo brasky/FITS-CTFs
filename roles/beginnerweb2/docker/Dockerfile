@@ -1,6 +1,6 @@
 FROM ubuntu:18.04
 
-RUN apt-get update -q -y && apt-get install -q -y --no-install-recommends apache2 php
+RUN apt-get update -q -y && apt-get install -q -y --no-install-recommends apache2 php openssh-server
 RUN mkdir /var/run/sshd
 RUN useradd -m -d /home/jack jack
 RUN echo 'jack:theBeanStalk123!' | chpasswd
