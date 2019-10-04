@@ -1,5 +1,6 @@
 FROM ubuntu:18.04
-
+ENV TZ=America/Los_Angeles
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 RUN apt-get update -q -y && apt-get install -q -y --no-install-recommends apache2 php openssh-server
 RUN mkdir /var/run/sshd
 RUN useradd -m -d /home/jack jack
