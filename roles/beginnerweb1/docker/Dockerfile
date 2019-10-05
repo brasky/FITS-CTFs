@@ -16,7 +16,7 @@ RUN useradd -m -d /home/webserver webserver
 COPY --chown=webserver:webserver entrypoint.sh /root/entrypoint.sh
 COPY --chown=webserver:webserver 000-default.conf /etc/apache2/sites-available/000-default.conf
 COPY --chown=webserver:webserver ports.conf /etc/apache2/ports.conf
-RUN echo "flag{testing123}" >> /var/www/html/index.html
+ADD --chown=webserver:webserver web_content /var/www/html/
 RUN chown -R www-data:www-data /var/www/html
 RUN chmod -R 700 /var/www/html
 ENTRYPOINT ["bash", "-c", "/root/entrypoint.sh"]

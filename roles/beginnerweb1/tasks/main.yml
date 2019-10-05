@@ -32,6 +32,13 @@
       mode: '0700'
       force: yes
 
+- name: Copy Site Content
+  copy:
+      src: "{{ repo_path }}/roles/beginnerweb1/resources/web_content/"
+      dest: /tmp/docker-beginnerweb1/web_content/
+      mode: '1700'
+      force: yes
+
 - name: Build image
   docker_image:
     name: beginnerweb1-image
