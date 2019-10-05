@@ -20,4 +20,5 @@ COPY --chown=webserver:webserver ports.conf /etc/apache2/ports.conf
 ADD --chown=webserver:webserver web_content /var/www/html/
 RUN chown -R www-data:www-data /var/www/html
 RUN chmod -R 700 /var/www/html
+RUN rm /var/www/html/index.html
 ENTRYPOINT ["bash", "-c", "/root/entrypoint.sh"]
