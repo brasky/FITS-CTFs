@@ -12,7 +12,7 @@ RUN sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so
 ENV NOTVISIBLE "in users profile"
 RUN echo "export VISIBLE=now" >> /etc/profile
 
-EXPOSE 8001
+EXPOSE 8002
 RUN useradd -m -d /home/webserver webserver
 COPY --chown=webserver:webserver entrypoint.sh /root/entrypoint.sh
 COPY --chown=webserver:webserver 000-default.conf /etc/apache2/sites-available/000-default.conf
