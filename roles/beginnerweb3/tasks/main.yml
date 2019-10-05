@@ -1,59 +1,59 @@
 - name: Create a directory if it does not exist
   file:
-    path: /tmp/docker-beginnerweb2
+    path: /tmp/docker-beginnerweb3
     state: directory
     mode: '0755'
 
 - name: Copy dockerfile
   copy:
-      src: "{{ repo_path }}/roles/beginnerweb2/docker/Dockerfile"
-      dest: /tmp/docker-beginnerweb2/Dockerfile
+      src: "{{ repo_path }}/roles/beginnerweb3/docker/Dockerfile"
+      dest: /tmp/docker-beginnerweb3/Dockerfile
       mode: '0744'
       force: yes
 
 - name: Copy entrypoint script
   copy:
-      src: "{{ repo_path }}/roles/beginnerweb2/resources/entrypoint.sh"
-      dest: /tmp/docker-beginnerweb2/entrypoint.sh
+      src: "{{ repo_path }}/roles/beginnerweb3/resources/entrypoint.sh"
+      dest: /tmp/docker-beginnerweb3/entrypoint.sh
       mode: '0744'
       force: yes
 
 - name: Copy ports.conf
   copy:
-      src: "{{ repo_path }}/roles/beginnerweb2/resources/ports.conf"
-      dest: /tmp/docker-beginnerweb2/ports.conf
+      src: "{{ repo_path }}/roles/beginnerweb3/resources/ports.conf"
+      dest: /tmp/docker-beginnerweb3/ports.conf
       mode: '0700'
       force: yes
 
 - name: Copy default site conf
   copy:
-      src: "{{ repo_path }}/roles/beginnerweb2/resources/000-default.conf"
-      dest: /tmp/docker-beginnerweb2/000-default.conf
+      src: "{{ repo_path }}/roles/beginnerweb3/resources/000-default.conf"
+      dest: /tmp/docker-beginnerweb3/000-default.conf
       mode: '0700'
       force: yes
 
 - name: Copy Site Content
   copy:
-      src: "{{ repo_path }}/roles/beginnerweb2/resources/web_content/"
-      dest: /tmp/docker-beginnerweb2/web_content/
+      src: "{{ repo_path }}/roles/beginnerweb3/resources/web_content/"
+      dest: /tmp/docker-beginnerweb3/web_content/
       mode: '1700'
       force: yes
 
 - name: Build image
   docker_image:
-    name: beginnerweb2-image
+    name: beginnerweb3-image
     build:
-      path: /tmp/docker-beginnerweb2/
+      path: /tmp/docker-beginnerweb3/
     source: build
     state: present
     force_source: yes
-    repository: beginnerweb2-image:latest
+    repository: beginnerweb3-image:latest
     force_tag: yes
 
 - name: Run the container
   docker_container:
-    name: beginnerweb2-web
-    image: beginnerweb2-image
+    name: beginnerweb3-web
+    image: beginnerweb3-image
     state: started
     restart: yes
     expose: 8003
