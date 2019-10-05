@@ -56,6 +56,6 @@
     image: beginnerweb2-image
     state: started
     restart: yes
-    expose: 8002
+    expose: 8003
     detach: yes
-    published_ports: '8002:8002'
+    published_ports: '8003:8003'
