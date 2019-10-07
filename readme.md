@@ -1,5 +1,13 @@
 # FITS CTF
 
+## Current Port Ranges:
+
+| Category            | Port Range |
+|---------------------|------------|
+| Linux               | 6000-6999  |
+| Web                 | 8000-8999  |
+| Binary Exploitation | 9000-9999  |
+
 ## Creating a new challenge
 
 - Create a branch called "[difficulty][topic]#" where:
