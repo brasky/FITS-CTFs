@@ -4,7 +4,7 @@
 
 Challenge is to browse to a website and find default creds to login.
 
-SSH is running on port 6201 in an ubuntu 18.04 docker container.
+SSH is running on port 8001 in an ubuntu 18.04 docker container.
 
 ## Creds
 

@@ -56,6 +56,6 @@
     image: beginnerweb4-image
     state: started
     restart: yes
-    expose: 8003
+    expose: 8004
     detach: yes
-    published_ports: '8003:8003'
+    published_ports: '8004:8004'
