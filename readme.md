@@ -1,4 +1,4 @@
-# FITS CTF!
+# FITS CTF
 
 ## Current Port Ranges:
 
