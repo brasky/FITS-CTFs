@@ -6,10 +6,13 @@
   become: yes
   roles:
     - common
-    - challenge1
-    - challenge2
-    - challenge3
-    - challenge4
-    - challenge5
-    - challenge6
-    - challenge7
+    - beginnerlinux9
+    - beginnerlinux10
+    - beginnerlinux11
+    - beginnerlinux12
+    - beginnerlinux13
+    - beginnerweb1
+    - beginnerweb2
+    - beginnerweb3
+    - beginnerweb4
+    - binexploit1

@@ -1,0 +1,54 @@
+- name: Create a directory if it does not exist
+  file:
+    path: /tmp/docker-beginnerlinux10
+    state: directory
+    mode: '0755'
+
+- name: Copy dockerfile
+  copy:
+      src: "{{ repo_path }}/roles/beginnerlinux10/docker/Dockerfile"
+      dest: /tmp/docker-beginnerlinux10/Dockerfile
+      mode: '0744'
+      force: yes
+
+- name: Copy entrypoint script
+  copy:
+      src: "{{ repo_path }}/roles/beginnerlinux10/resources/entrypoint.sh"
+      dest: /tmp/docker-beginnerlinux10/entrypoint.sh
+      mode: '0744'
+      force: yes
+
+- name: Copy ports.conf
+  copy:
+      src: "{{ repo_path }}/roles/beginnerlinux10/resources/ports.conf"
+      dest: /tmp/docker-beginnerlinux10/ports.conf
+      mode: '0700'
+      force: yes
+
+- name: Copy default site conf
+  copy:
+      src: "{{ repo_path }}/roles/beginnerlinux10/resources/000-default.conf"
+      dest: /tmp/docker-beginnerlinux10/000-default.conf
+      mode: '0700'
+      force: yes
+
+- name: Build image
+  docker_image:
+    name: beginnerlinux10-image
+    build:
+      path: /tmp/docker-beginnerlinux10/
+    source: build
+    state: present
+    force_source: yes
+    repository: beginnerlinux10-image:latest
+    force_tag: yes
+
+- name: Run the container
+  docker_container:
+    name: beginnerlinux10
+    image: beginnerlinux10-image
+    state: started
+    restart: yes
+    expose: 22
+    detach: yes
+    published_ports: '6010:22'

@@ -1,0 +1,47 @@
+- name: Create a directory if it does not exist
+  file:
+    path: /tmp/docker-beginnerlinux13
+    state: directory
+    mode: '0755'
+
+- name: Copy dockerfile
+  copy:
+      src: "{{ repo_path }}/roles/beginnerlinux13/docker/Dockerfile"
+      dest: /tmp/docker-beginnerlinux13/Dockerfile
+      mode: '0744'
+      force: yes
+
+- name: Copy entrypoint script
+  copy:
+      src: "{{ repo_path }}/roles/beginnerlinux13/resources/entrypoint.sh"
+      dest: /tmp/docker-beginnerlinux13/entrypoint.sh
+      mode: '0744'
+      force: yes
+
+- name: Copy vsftpd config
+  copy:
+      src: "{{ repo_path }}/roles/beginnerlinux13/resources/vsftpd.conf"
+      dest: /tmp/docker-beginnerlinux13/vsftpd.conf
+      mode: '0744'
+      force: yes
+
+- name: Build image
+  docker_image:
+    name: beginnerlinux13-image
+    build:
+      path: /tmp/docker-beginnerlinux13/
+    source: build
+    state: present
+    force_source: yes
+    repository: beginnerlinux13-image:latest
+    force_tag: yes
+
+- name: Run the container
+  docker_container:
+    name: beginnerlinux13
+    image: beginnerlinux13-image
+    state: started
+    restart: yes
+    expose: 21
+    detach: yes
+    published_ports: "10000-10100:10000-10100, 6013:6013, 20:20"

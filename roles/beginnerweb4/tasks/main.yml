@@ -1,0 +1,61 @@
+- name: Create a directory if it does not exist
+  file:
+    path: /tmp/docker-beginnerweb4
+    state: directory
+    mode: '0755'
+
+- name: Copy dockerfile
+  copy:
+      src: "{{ repo_path }}/roles/beginnerweb4/docker/Dockerfile"
+      dest: /tmp/docker-beginnerweb4/Dockerfile
+      mode: '0744'
+      force: yes
+
+- name: Copy entrypoint script
+  copy:
+      src: "{{ repo_path }}/roles/beginnerweb4/resources/entrypoint.sh"
+      dest: /tmp/docker-beginnerweb4/entrypoint.sh
+      mode: '0744'
+      force: yes
+
+- name: Copy ports.conf
+  copy:
+      src: "{{ repo_path }}/roles/beginnerweb4/resources/ports.conf"
+      dest: /tmp/docker-beginnerweb4/ports.conf
+      mode: '0700'
+      force: yes
+
+- name: Copy default site conf
+  copy:
+      src: "{{ repo_path }}/roles/beginnerweb4/resources/000-default.conf"
+      dest: /tmp/docker-beginnerweb4/000-default.conf
+      mode: '0700'
+      force: yes
+
+- name: Copy Site Content
+  copy:
+      src: "{{ repo_path }}/roles/beginnerweb4/resources/my_website/"
+      dest: /tmp/docker-beginnerweb4/my_website/
+      mode: '1700'
+      force: yes
+
+- name: Build image
+  docker_image:
+    name: beginnerweb4-image
+    build:
+      path: /tmp/docker-beginnerweb4/
+    source: build
+    state: present
+    force_source: yes
+    repository: beginnerweb4-image:latest
+    force_tag: yes
+
+- name: Run the container
+  docker_container:
+    name: beginnerweb4
+    image: beginnerweb4-image
+    state: started
+    restart: yes
+    expose: 8004
+    detach: yes
+    published_ports: '8004:8004'
