@@ -82,3 +82,7 @@
     update_cache: yes
   tags:
     - docker
+
+#stop all containers, that way when challenges are discontinued they stop running after the next deploy
+- name: Kill All Containers
+  command: docker kill $(docker ps -q)

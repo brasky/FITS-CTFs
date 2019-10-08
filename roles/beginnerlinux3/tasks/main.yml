@@ -31,7 +31,7 @@
 
 - name: Run the container
   docker_container:
-    name: beginnerlinux3-ssh
+    name: beginnerlinux3
     image: beginnerlinux3-image
     state: started
     restart: yes

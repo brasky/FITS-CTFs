@@ -52,7 +52,7 @@
 
 - name: Run the container
   docker_container:
-    name: beginnerweb2-web
+    name: beginnerweb2
     image: beginnerweb2-image
     state: started
     restart: yes
