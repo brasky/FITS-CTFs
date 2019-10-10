@@ -25,7 +25,7 @@ session_start();
         <input name="Username" type="username" id="inputUsername" class="form-control" placeholder="Username" required autofocus>
         <label for="inputPassword" class="sr-only">Password</label>
         <input name="Password" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-        <input type="hidden" name="admin" value="<?php echo 'false'; ?>" />
+        <input type="hidden" name="admin" value="false" />
         <div class="checkbox">
             <label>
                 <input type="checkbox" value="remember-me"> Remember me
@@ -47,7 +47,7 @@ session_start();
                 /* Success: Set session variables and redirect to protected page */
                 $_SESSION['Username'] = $Username;
                 $_SESSION['Admin'] = false;
-                if($_POST['admin'] == true){ 
+                if($_POST['admin'] == 'true'){ 
                     $_SESSION['Admin'] = true;
                 }
                 $_SESSION['Active'] = true;
