@@ -32,7 +32,7 @@
   session_start(); /* Starts the session */
 
   if($_SESSION['Admin'] == true){ /* Redirects user to Login.php if not logged in */
-    echo 'flag{}';
+    echo 'flag{d0ntr3ly0nauth3nt1cr3qu3st5}';
 	  
   }
   else{

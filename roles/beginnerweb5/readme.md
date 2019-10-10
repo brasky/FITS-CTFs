@@ -12,4 +12,4 @@ jack:theBeanStalk
 
 ## Flag
 
-flag{}
+flag{d0ntr3ly0nauth3nt1cr3qu3st5}
