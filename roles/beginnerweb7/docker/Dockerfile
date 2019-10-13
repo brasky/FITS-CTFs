@@ -21,6 +21,6 @@ ADD --chown=webserver:webserver web_content /var/www/html/
 RUN chown -R www-data:www-data /var/www/html
 RUN chmod -R 700 /var/www/html
 RUN rm /var/www/html/index.html
-RUN echo "flag{}" > /home/jack/flag.txt
+RUN echo "flag{d0nt3v3rtru5tcl13nt5!}" > /home/jack/flag.txt
 RUN chmod 777 /home/jack/flag.txt
 ENTRYPOINT ["bash", "-c", "/root/entrypoint.sh"]

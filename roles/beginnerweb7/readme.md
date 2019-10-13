@@ -12,4 +12,4 @@ None
 
 ## Flag
 
-flag{}
+flag{d0nt3v3rtru5tcl13nt5!}
