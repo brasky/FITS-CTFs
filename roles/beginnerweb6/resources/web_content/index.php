@@ -4,11 +4,11 @@ ob_start();
 if (!session_id()){
 session_start();
 }
-include("db_config.php");
-ini_set('display_errors', 1);
 $DBUSER = 'webserver';
 $DBPASS = 'demoPass#00';
 system('mysql -u '.$DBUSER.' -p'.$DBPASS.' < sqlitraining_ctf.sql');
+include("db_config.php");
+ini_set('display_errors', 1);
 ?>
 
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
