@@ -13,4 +13,4 @@ jack:th3m0sts3cur3b34nst4lk3v3r!!
 
 ## Flag
 
-flag{}
+flag{pr0p3rs4n1t1z4t10ni5imp0rt5nt}
