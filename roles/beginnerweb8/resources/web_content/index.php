@@ -31,8 +31,8 @@
 
   session_start(); /* Starts the session */
 
-  if($_COOKIE['Admin'] == true){ /* Redirects user to Login.php if not logged in */
-    echo 'flag{}';
+  if($_COOKIE['Admin'] === "true"){ /* Redirects user to Login.php if not logged in */
+    echo 'flag{c00k1esare4eat1ngn0tf0rs3cur1ty}';
 	  
   }
   else{

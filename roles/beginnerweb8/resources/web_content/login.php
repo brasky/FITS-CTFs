@@ -46,7 +46,7 @@ session_start();
 
                 /* Success: Set session variables and redirect to protected page */
                 $_SESSION['Username'] = $Username;
-                setcookie("Admin", false, time()+3600);
+                setcookie("Admin", "false", time()+3600);
                 $_SESSION['Active'] = true;
                 
                 header("location:index.php");
