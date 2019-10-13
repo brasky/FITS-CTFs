@@ -94,7 +94,7 @@ if (mysqli_warning_count($con)) {
 	$_SESSION["name"] = $row[3];
 	//ob_clean();
 	
-	header('Location: home.php');
+	header('Location:home.php?user='.$row[1]);
 	}
 	else{
 		echo "<font style=\"color:#FF0000\">Invalid password!</font\>";
