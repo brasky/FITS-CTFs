@@ -1,7 +1,7 @@
 FROM ubuntu:18.04
 ENV TZ=America/Los_Angeles
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
-RUN apt-get update -q -y && apt-get install -q -y --no-install-recommends apache2 php openssh-server mysql-server libapache2-mod-php
+RUN apt-get update -q -y && apt-get install -q -y --no-install-recommends apache2 php openssh-server mysql-server libapache2-mod-php php-mysql
 RUN mkdir /var/run/sshd
 RUN useradd -m -d /home/jack jack
 RUN echo 'jack:theBeanStalk123!' | chpasswd
