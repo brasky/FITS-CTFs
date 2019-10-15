@@ -1,0 +1,68 @@
+- name: Create a directory if it does not exist
+  file:
+    path: /tmp/docker-beginnerweb6
+    state: directory
+    mode: '0755'
+
+- name: Copy dockerfile
+  copy:
+      src: "{{ repo_path }}/roles/beginnerweb6/docker/Dockerfile"
+      dest: /tmp/docker-beginnerweb6/Dockerfile
+      mode: '0744'
+      force: yes
+
+- name: Copy entrypoint script
+  copy:
+      src: "{{ repo_path }}/roles/beginnerweb6/resources/entrypoint.sh"
+      dest: /tmp/docker-beginnerweb6/entrypoint.sh
+      mode: '0744'
+      force: yes
+
+- name: Copy ports.conf
+  copy:
+      src: "{{ repo_path }}/roles/beginnerweb6/resources/ports.conf"
+      dest: /tmp/docker-beginnerweb6/ports.conf
+      mode: '0700'
+      force: yes
+
+- name: Copy default site conf
+  copy:
+      src: "{{ repo_path }}/roles/beginnerweb6/resources/000-default.conf"
+      dest: /tmp/docker-beginnerweb6/000-default.conf
+      mode: '0700'
+      force: yes
+
+- name: Copy php.ini
+  copy:
+      src: "{{ repo_path }}/roles/beginnerweb6/resources/php.ini"
+      dest: /tmp/docker-beginnerweb6/php.ini
+      mode: '0700'
+      force: yes
+
+- name: Copy Site Content
+  copy:
+      src: "{{ repo_path }}/roles/beginnerweb6/resources/web_content/"
+      dest: /tmp/docker-beginnerweb6/web_content/
+      mode: '1700'
+      force: yes
+
+- name: Build image
+  docker_image:
+    name: beginnerweb6-image
+    build:
+      path: /tmp/docker-beginnerweb6/
+    source: build
+    state: present
+    force_source: yes
+    repository: beginnerweb6-image:latest
+    force_tag: yes
+
+- name: Run the container
+  docker_container:
+    name: beginnerweb6
+    image: beginnerweb6-image
+    state: started
+    restart: yes
+    expose: 8006
+    detach: yes
+    published_ports: '8006:8006'
