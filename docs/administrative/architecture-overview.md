@@ -30,4 +30,4 @@ Supporting services are things that could break and not the flow of new challeng
 - [ctfbot](ctfbot.md) (https://github.com/brasky/ctfbot)
 - [Imaging Server](utility.md) (VM - Utility)
 - [ELK](elk.md) (VM - ELK)
-- [Domain](fitsctf-domain.md) fitsctf.com and associated certificate (owned by Elliot)
+- [Domain](ctfd.md#Domain-and-Certificate) fitsctf.com and associated certificate (owned by Elliot)
