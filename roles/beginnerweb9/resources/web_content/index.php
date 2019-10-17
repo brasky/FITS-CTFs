@@ -19,7 +19,7 @@
         Check out the new <a href="controlviewer.php?family=ac">control viewer</a>! It's a work in progress...
 
         </p>
-        <p><a class="btn btn-lg btn-success" href="logout.php" role="button">Log out</a></p>
+        
       </div>
 
       <footer class="footer">
