@@ -6,5 +6,4 @@
   become: yes
   roles:
     - common
-    - beginnerweb6
-    - binexploit1
+    - beginnerweb9
