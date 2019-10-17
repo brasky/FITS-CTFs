@@ -1,0 +1,61 @@
+- name: Create a directory if it does not exist
+  file:
+    path: "/tmp/docker-{{ challenge_name }}"
+    state: directory
+    mode: '0755'
+
+- name: Copy dockerfile
+  copy:
+      src: "{{ repo_path }}/roles/{{ challenge_name }}/docker/Dockerfile"
+      dest: "/tmp/docker-{{ challenge_name }}/Dockerfile"
+      mode: '0744'
+      force: yes
+
+- name: Copy entrypoint script
+  copy:
+      src: "{{ repo_path }}/roles/{{ challenge_name }}/resources/entrypoint.sh"
+      dest: "/tmp/docker-{{ challenge_name }}/entrypoint.sh"
+      mode: '0744'
+      force: yes
+
+- name: Copy ports.conf
+  copy:
+      src: "{{ repo_path }}/roles/{{ challenge_name }}/resources/ports.conf"
+      dest: "/tmp/docker-{{ challenge_name }}/ports.conf"
+      mode: '0700'
+      force: yes
+
+- name: Copy default site conf
+  copy:
+      src: "{{ repo_path }}/roles/{{ challenge_name }}/resources/000-default.conf"
+      dest: "/tmp/docker-{{ challenge_name }}/000-default.conf"
+      mode: '0700'
+      force: yes
+
+- name: Copy Site Content
+  copy:
+      src: "{{ repo_path }}/roles/{{ challenge_name }}/resources/web_content/"
+      dest: "/tmp/docker-{{ challenge_name }}/web_content/"
+      mode: '1700'
+      force: yes
+
+- name: Build image
+  docker_image:
+    name: "{{ challenge_name }}-image"
+    build:
+      path: "/tmp/docker-{{ challenge_name }}/"
+    source: build
+    state: present
+    force_source: yes
+    repository: "{{ challenge_name }}-image:latest"
+    force_tag: yes
+
+- name: Run the container
+  docker_container:
+    name: "{{ challenge_name }}"
+    image: "{{ challenge_name }}-image"
+    state: started
+    restart: yes
+    expose: "{{ port }}"
+    detach: yes
+    published_ports: '"{{ port }}":"{{ port }}"'
