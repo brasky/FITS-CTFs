@@ -56,6 +56,6 @@
     image: "{{ challenge_name }}-image"
     state: started
     restart: yes
-    expose: "{{ port }}"
+    expose: {{ port }}
     detach: yes
-    published_ports: '"{{ port }}":"{{ port }}"'
+    published_ports: '{{ port }}:{{ port }}'
