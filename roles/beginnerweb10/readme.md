@@ -10,4 +10,4 @@ None
 
 ## Flag
 
-flag{}
+flag{n0t_tru5t1ng_cl13nt_d4t4_1s_A_c0mm0n_th3m3}

@@ -12,4 +12,4 @@ jackadmin:myn3wp4ssw0rd1ssup3rs3cure
 
 ## Flag
 
-flag{bust1nm4k3sm3f33lg00d}
+flag{d0ntcr055th3str34ms!}
