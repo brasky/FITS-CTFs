@@ -6,6 +6,29 @@
   become: yes
   roles:
     - common
+    - beginnerlinux1
+    - beginnerlinux2
+    - beginnerlinux3
+    - beginnerlinux4
+    - beginnerlinux5
+    - beginnerlinux6
+    - beginnerlinux7
+    - beginnerlinux8
+    - beginnerlinux9
+    - beginnerlinux10
+    - beginnerlinux11
+    - beginnerlinux12
+    - beginnerlinux13
+    - beginnerweb1
+    - beginnerweb2
+    - beginnerweb3
+    - beginnerweb4
+    - beginnerweb5
+    - beginnerweb6
+    - beginnerweb7
+    - beginnerweb8
     - beginnerweb9
-    - beginnerweb13
     - beginnerweb10
+    - beginnerweb11
+    - beginnerweb12
+    - beginnerweb13
