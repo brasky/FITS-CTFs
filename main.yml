@@ -6,6 +6,14 @@
   become: yes
   roles:
     - common
+    - beginnerlinux1
+    - beginnerlinux2
+    - beginnerlinux3
+    - beginnerlinux4
+    - beginnerlinux5
+    - beginnerlinux6
+    - beginnerlinux7
+    - beginnerlinux8
     - beginnerlinux9
     - beginnerlinux10
     - beginnerlinux11
@@ -15,4 +23,12 @@
     - beginnerweb2
     - beginnerweb3
     - beginnerweb4
-    - binexploit1
+    - beginnerweb5
+    - beginnerweb6
+    - beginnerweb7
+    - beginnerweb8
+    - beginnerweb9
+    - beginnerweb10
+    # - beginnerweb11
+    - beginnerweb12
+    - beginnerweb13

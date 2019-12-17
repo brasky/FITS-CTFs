@@ -85,5 +85,6 @@
 
 #stop all containers, that way when challenges are discontinued they stop running after the next deploy
 - name: Kill All Containers
+  ignore_errors: yes
   shell: |
     docker kill $(docker ps -q)

@@ -26,7 +26,7 @@
 
       <div class="jumbotron">
         <h1>Status: logged in</h1>
-        <p class="lead">flag{bust1nm4k3sm3f33lg00d}</p>
+        <p class="lead">flag{d0ntcr055th3str34ms!}</p>
         <p><a class="btn btn-lg btn-success" href="logout.php" role="button">Log out</a></p>
       </div>
 

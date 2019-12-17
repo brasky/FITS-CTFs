@@ -1,0 +1,61 @@
+- name: Create a directory if it does not exist
+  file:
+    path: /tmp/docker-beginnerweb12
+    state: directory
+    mode: '0755'
+
+- name: Copy dockerfile
+  copy:
+      src: "{{ repo_path }}/roles/beginnerweb12/docker/Dockerfile"
+      dest: /tmp/docker-beginnerweb12/Dockerfile
+      mode: '0744'
+      force: yes
+
+- name: Copy entrypoint script
+  copy:
+      src: "{{ repo_path }}/roles/beginnerweb12/resources/entrypoint.sh"
+      dest: /tmp/docker-beginnerweb12/entrypoint.sh
+      mode: '0744'
+      force: yes
+
+- name: Copy ports.conf
+  copy:
+      src: "{{ repo_path }}/roles/beginnerweb12/resources/ports.conf"
+      dest: /tmp/docker-beginnerweb12/ports.conf
+      mode: '0700'
+      force: yes
+
+- name: Copy default site conf
+  copy:
+      src: "{{ repo_path }}/roles/beginnerweb12/resources/000-default.conf"
+      dest: /tmp/docker-beginnerweb12/000-default.conf
+      mode: '0700'
+      force: yes
+
+- name: Copy Site Content
+  copy:
+      src: "{{ repo_path }}/roles/beginnerweb12/resources/web_content/"
+      dest: /tmp/docker-beginnerweb12/web_content/
+      mode: '1700'
+      force: yes
+
+- name: Build image
+  docker_image:
+    name: beginnerweb12-image
+    build:
+      path: /tmp/docker-beginnerweb12/
+    source: build
+    state: present
+    force_source: yes
+    repository: beginnerweb12-image:latest
+    force_tag: yes
+
+- name: Run the container
+  docker_container:
+    name: beginnerweb12
+    image: beginnerweb12-image
+    state: started
+    restart: yes
+    expose: 8012
+    detach: yes
+    published_ports: '8012:8012'
