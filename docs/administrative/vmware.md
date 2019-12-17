@@ -2,6 +2,8 @@
 
 ## Overview
 
+IP address: 192.168.1.16 
+
 - VMWare ESXi-6.7.0-20190402001-standard is installed
 - No vCenter
 - 2 Network cards active
