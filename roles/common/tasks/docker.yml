@@ -11,7 +11,7 @@
     - software-properties-common
   tags:
     - docker
- 
+
 # curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 - name: Add Dockers official GPG key
   apt_key:
@@ -19,7 +19,7 @@
     state: present
   tags:
     - docker
- 
+
 # sudo apt-key fingerprint 0EBFCD88
 - name: Verify that we have the key with the fingerprint
   apt_key:
@@ -27,7 +27,7 @@
     state: present
   tags:
     - docker
- 
+
 # sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu xenial stable"
 - name: Set up the stable repository
   apt_repository:
@@ -36,14 +36,14 @@
     update_cache: yes
   tags:
     - docker
- 
+
 # sudo apt-get update
 - name: Update apt packages
   apt:
     update_cache: yes
   tags:
     - docker
- 
+
 # sudo apt-get install docker-ce
 - name: Install docker
   apt:
@@ -53,7 +53,7 @@
   notify: Start docker on boot
   tags:
     - docker
- 
+
 # sudo groupadd docker
 - name: Create "docker" group
   group:
@@ -61,7 +61,7 @@
     state: present
   tags:
     - docker
- 
+
 # sudo usermod -aG docker ubuntu
 - name: Add user to "docker" group
   user:
@@ -73,7 +73,7 @@
     - challenge
   tags:
     - docker
- 
+
 # sudo apt-get install docker-compose
 - name: Install docker-compose
   apt:
@@ -84,7 +84,7 @@
     - docker
 
 #stop all containers, that way when challenges are discontinued they stop running after the next deploy
-- name: Kill All Containers
-  ignore_errors: yes
-  shell: |
-    docker kill $(docker ps -q)
+# - name: Kill All Containers
+#   ignore_errors: yes
+#   shell: |
+#     docker kill $(docker ps -q)
