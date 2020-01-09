@@ -11,7 +11,7 @@
 ## Creating a new challenge
 
 - Create a branch called "[difficulty][topic]#" where:
-    - difficulty is beginner, intermediate, advanced 
+    - difficulty is beginner, intermediate, advanced
     - Topic is linux, web, wireless, lockpicking, or any of the github labels. Make one if there isn't one!
     - and # is one above the highest challenge number in that category. Check for issues tagged `documentation` and `your topic` to find the challenge numbering list.
         - This number will determine the port number if dockerizing the challenge. 6000 + # = the exposed port
@@ -28,7 +28,7 @@
 
 ### Dockerfiles
 
-If your challenge is using docker, you will need a Dockerfile. It should contain most of what you need in the container for the challenge. Use challenge1's dockerfile as an example. 
+If your challenge is using docker, you will need a Dockerfile. It should contain most of what you need in the container for the challenge. Use challenge1's dockerfile as an example.
 
 The dockerfile will handle setup such as:
 
@@ -67,3 +67,7 @@ Because prod and dev are pulling from 2 different branches for deployment, varia
 The `src` field has the variable `{{repo_path}}` because depending on the machine it's being deployed to (prod vs dev) the path might be `/home/rundeck/FITS-CTF/` (for prod) or it might be `/home/rundeck/FITS-CTF-DEV/` (for dev).
 
 These variables are defined in `group_vars` and `vars` folders in the root of the project.
+
+## Troubleshooting Notes
+
+* The VMWare instance at 192.168.1.16 is NOT accessible while on the FITS-lab wifi. To connect to it, use the normal FITS wifi
