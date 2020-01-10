@@ -62,7 +62,7 @@
   tags:
     - docker
 
-# sudo usermod -aG docker ubuntu
+# sudo usermod -aG docker ubuntussh
 - name: Add user to "docker" group
   user:
     name: "{{ item }}"
@@ -84,7 +84,7 @@
     - docker
 
 #stop all containers, that way when challenges are discontinued they stop running after the next deploy
-# - name: Kill All Containers
-#   ignore_errors: yes
-#   shell: |
-#     docker kill $(docker ps -q)
+- name: Kill All Containers
+  ignore_errors: yes
+  shell: |
+    docker kill $(docker ps -q)
